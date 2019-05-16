@@ -76,23 +76,23 @@ class UserReactiveController {
 @Service
 class UserReactiveService {
 
-    private final UserReactiveRepository userReactiveRepository;
+    private final UserReactiveRepository repo;
 
     @Autowired
-    UserReactiveService(UserReactiveRepository userReactiveRepository) {
-        this.userReactiveRepository = userReactiveRepository;
+    UserReactiveService(UserReactiveRepository repo) {
+        this.repo = repo;
     }
 
     public Mono<User> findById(String id) {
-        return userReactiveRepository.findById(id);
+        return repo.findById(id);
     }
 
     public Flux<User> findAll() {
-        return userReactiveRepository.findAll();
+        return repo.findAll();
     }
 
     public Mono<User> save(User user) {
-        return userReactiveRepository.save(user);
+        return repo.save(user);
     }
 
 }
